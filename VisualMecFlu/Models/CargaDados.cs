@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VisualMecFlu.Models
 {
-    internal class CargaDados
+    public class CargaDados
     {
         public int Id { get; set; }
         public int P1 { get; set; }

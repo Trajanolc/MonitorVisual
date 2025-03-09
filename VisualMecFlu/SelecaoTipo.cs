@@ -32,9 +32,12 @@ namespace VisualMecFlu
         private void Venturi_Click(object sender, EventArgs e)
         {
             Venturi venturiForm = new Venturi();
-            venturiForm.Parent = this;
             venturiForm.dados = dados;
             venturiForm.tipoMedicao = this.tipoMedicao;
+            venturiForm.Show();
+
+            this.Hide();
+          
 
         }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace VisualMecFlu.Models
 {
-    internal class VazaoTempo
+    public class VazaoTempo
     {
         public double Tempo { get; set; }
         public double Vazao { get; set; }

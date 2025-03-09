@@ -13,17 +13,18 @@ namespace VisualMecFlu
 {
     public partial class Venturi : Form
     {
-        internal Form parent;
-        internal List<CargaDados> dados = [];
-        internal TipoMedicao tipoMedicao;
+        public List<CargaDados> dados = [];
+        public TipoMedicao tipoMedicao;
+        public static Venturi instance;
         public Venturi()
         {
             InitializeComponent();
+            instance = this;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            parent.Show();
+            SelecaoTipo.instance.Show();
             this.Close();
         }
 
@@ -44,6 +45,12 @@ namespace VisualMecFlu
                 model.CargaDados = dados;
             }
 
+            Grafico grafico = new Grafico();
+            grafico.equipamento = model;
+            grafico.tipoMedicao = tipoMedicao;
+            grafico.Show();
+            grafico.run();
+            this.Hide();
 
 
         }
