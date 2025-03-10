@@ -49,7 +49,7 @@ namespace VisualMecFlu
             grafico.equipamento = model;
             grafico.tipoMedicao = tipoMedicao;
             grafico.Show();
-            grafico.run();
+            grafico.gerar();
             this.Hide();
 
 

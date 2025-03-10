@@ -15,7 +15,7 @@ namespace VisualMecFlu
 {
     public partial class Grafico : Form
     {
-        public VenturiModel equipamento;
+        public IEquipamentoMedicao equipamento;
         public static Grafico instance;
         public TipoMedicao tipoMedicao;
 
@@ -28,7 +28,7 @@ namespace VisualMecFlu
 
         }
 
-        public void run()
+        public void gerar()
         {
             if (tipoMedicao == TipoMedicao.Planilha)
             {
@@ -37,11 +37,13 @@ namespace VisualMecFlu
 
                 formsPlot1.Plot.Add.Scatter(lista.Select(e => e.Tempo).ToList(), lista.Select(e => e.Vazao).ToList());
 
-                var tempoMax = lista.Select(e => e.Tempo).ToList().Max() + 2;
-                var vazaoMax = lista.Select(e => e.Vazao).ToList().Max() + 2;
 
 
-                formsPlot1.Plot.Axes.SetLimits(0, tempoMax, 0, vazaoMax);
+                formsPlot1.Plot.Axes.AutoScaleExpand();
+                formsPlot1.Plot.XLabel("Tempo (s)");
+                formsPlot1.Plot.YLabel("Vazão (m³/s)");
+
+
                 formsPlot1.Refresh();
             }
         }
@@ -54,7 +56,7 @@ namespace VisualMecFlu
 
         private void button1_Click(object sender, EventArgs e)
         {
-            run();
+            gerar();
         }
     }
 }

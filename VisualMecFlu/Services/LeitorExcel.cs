@@ -35,13 +35,15 @@ namespace VisualMecFlu.Services
 
                     foreach (var row in Sheet.Rows.Skip(1))
                     {
-                        if (row.AllocatedCells.Count != 4 || row.AllocatedCells.Any(e => string.IsNullOrEmpty(e.StringValue)))
+                        var celulas_validas = row.AllocatedCells.Take(4).ToList();
+
+                        if (celulas_validas.Count != 4 || celulas_validas.Any(e => string.IsNullOrEmpty(e.StringValue)))
                         {
                             break;
                         }
-                        var id = row.AllocatedCells[1].IntValue;
-                        var p1 = row.AllocatedCells[2].IntValue;
-                        var p2 = row.AllocatedCells[3].IntValue;
+                        var id = celulas_validas[1].IntValue;
+                        var p1 = celulas_validas[2].IntValue;
+                        var p2 = celulas_validas[3].IntValue;
 
                         lista.Add(new CargaDados()
                         {

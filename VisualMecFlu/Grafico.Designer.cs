@@ -30,15 +30,15 @@
         {
             formsPlot1 = new ScottPlot.WinForms.FormsPlot();
             voltar = new Button();
-            button1 = new Button();
+            Title = new Label();
             SuspendLayout();
             // 
             // formsPlot1
             // 
             formsPlot1.DisplayScale = 1F;
-            formsPlot1.Location = new Point(203, 125);
+            formsPlot1.Location = new Point(56, 101);
             formsPlot1.Name = "formsPlot1";
-            formsPlot1.Size = new Size(519, 301);
+            formsPlot1.Size = new Size(856, 372);
             formsPlot1.TabIndex = 0;
             // 
             // voltar
@@ -52,22 +52,24 @@
             voltar.UseVisualStyleBackColor = true;
             voltar.Click += voltar_Click;
             // 
-            // button1
+            // Title
             // 
-            button1.Location = new Point(401, 50);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 2;
-            button1.Text = "run";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            Title.AutoSize = true;
+            Title.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Title.ForeColor = SystemColors.Control;
+            Title.Location = new Point(375, 34);
+            Title.Name = "Title";
+            Title.Size = new Size(192, 45);
+            Title.TabIndex = 2;
+            Title.Text = "Visualização";
             // 
             // Grafico
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DarkBlue;
             ClientSize = new Size(954, 529);
-            Controls.Add(button1);
+            Controls.Add(Title);
             Controls.Add(voltar);
             Controls.Add(formsPlot1);
             Name = "Grafico";
@@ -81,6 +83,6 @@
 
         private ScottPlot.WinForms.FormsPlot formsPlot1;
         private Button voltar;
-        private Button button1;
+        private Label Title;
     }
 }

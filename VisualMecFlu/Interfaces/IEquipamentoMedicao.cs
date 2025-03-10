@@ -7,7 +7,7 @@ using VisualMecFlu.Models;
 
 namespace VisualMecFlu.Interfaces
 {
-    interface IEquipamentoMedicao
+    public interface IEquipamentoMedicao
     {
         public List<VazaoTempo> CalculoArray()
         {
