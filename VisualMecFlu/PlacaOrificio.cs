@@ -12,13 +12,13 @@ using VisualMecFlu.Models;
 
 namespace VisualMecFlu
 {
-    public partial class Venturi : Form
+    public partial class PlacaOrificio : Form
     {
         public List<CargaDados> dados = [];
-        public SerialPort serialPort;
         public TipoMedicao tipoMedicao;
-        public static Venturi instance;
-        public Venturi()
+        public SerialPort serialPort;
+        public static PlacaOrificio instance;
+        public PlacaOrificio()
         {
             InitializeComponent();
             instance = this;
@@ -27,17 +27,16 @@ namespace VisualMecFlu
         private void button1_Click(object sender, EventArgs e)
         {
             SelecaoTipo.instance.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            VenturiModel model = new VenturiModel()
+            PlacaOrificioModel model = new PlacaOrificioModel()
             {
-                D1 = (double)this.D1Value.Value,
                 D2 = (double)this.D2Value.Value,
                 DensidadeLiquido = (double)this.DensidadeValue.Value,
-                CoeficienteDescarga = (double)this.CoeficienteDescargaValue.Value
+                CoeficienteEscoamento = (double)this.CoeficienteEscoamentoValue.Value
             };
 
             model.CalcularAreas();

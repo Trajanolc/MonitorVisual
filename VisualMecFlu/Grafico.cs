@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace VisualMecFlu
     {
         public IEquipamentoMedicao equipamento;
         public static Grafico instance;
+        public SerialPort serialPort;
         public TipoMedicao tipoMedicao;
 
         public Grafico()
@@ -36,16 +38,20 @@ namespace VisualMecFlu
 
 
                 formsPlot1.Plot.Add.Scatter(lista.Select(e => e.Tempo).ToList(), lista.Select(e => e.Vazao).ToList());
-
-
-
-                formsPlot1.Plot.Axes.AutoScaleExpand();
-                formsPlot1.Plot.XLabel("Tempo (s)");
-                formsPlot1.Plot.YLabel("Vazão (m³/s)");
-
-
-                formsPlot1.Refresh();
             }
+
+            if (tipoMedicao == TipoMedicao.TempoReal) { 
+                //configurar refresh por timer.ticker
+            }
+
+
+
+            formsPlot1.Plot.Axes.AutoScaleExpand();
+            formsPlot1.Plot.XLabel("Tempo (s)");
+            formsPlot1.Plot.YLabel("Vazão (m³/s)");
+
+
+            formsPlot1.Refresh();
         }
 
         private void voltar_Click(object sender, EventArgs e)
@@ -57,6 +63,18 @@ namespace VisualMecFlu
         private void button1_Click(object sender, EventArgs e)
         {
             gerar();
+        }
+
+        private void limparDados(SerialPort serialPort)
+        {
+            if (!serialPort.IsOpen) {
+                return;
+            }
+
+            string leitura = serialPort.ReadExisting();
+            leitura = leitura.Trim();
+            leitura = leitura.Substring(leitura.IndexOf("DATA"));
+
         }
     }
 }

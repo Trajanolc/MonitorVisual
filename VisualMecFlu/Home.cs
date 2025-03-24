@@ -1,4 +1,5 @@
 using GemBox.Spreadsheet;
+using System.IO.Ports;
 using System.Windows;
 using VisualMecFlu.Models;
 using VisualMecFlu.Services;
@@ -39,13 +40,25 @@ namespace VisualMecFlu
                 selecaoTipo.Show();
                 this.Hide();
             }
-            catch (Exception ex) {
+            catch (Exception ex)
+            {
                 MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            
+        }
 
-            
+        private void tempoReal_Click(object sender, EventArgs e)
+        {
+            SelecaoPorta selecaoPorta = new SelecaoPorta();
+            selecaoPorta.loader();
+            selecaoPorta.Show();
+            this.Hide();
+
+        }
+
+        private void Title_Click(object sender, EventArgs e)
+        {
+
         }
     }
 

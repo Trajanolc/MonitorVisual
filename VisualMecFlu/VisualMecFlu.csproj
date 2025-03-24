@@ -15,6 +15,7 @@
   <ItemGroup>
     <PackageReference Include="GemBox.Spreadsheet" Version="2025.2.109" />
     <PackageReference Include="ScottPlot.WinForms" Version="5.0.54" />
+    <PackageReference Include="System.IO.Ports" Version="9.0.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,6 +23,9 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="PlacaOrificio.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
 

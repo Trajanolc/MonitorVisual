@@ -31,7 +31,7 @@
             Title = new Label();
             tableLayoutPanel1 = new TableLayoutPanel();
             button2 = new Button();
-            button1 = new Button();
+            PlacaOrificio = new Button();
             Venturi = new Button();
             voltar = new Button();
             tableLayoutPanel1.SuspendLayout();
@@ -57,7 +57,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel1.Controls.Add(button2, 2, 0);
-            tableLayoutPanel1.Controls.Add(button1, 1, 0);
+            tableLayoutPanel1.Controls.Add(PlacaOrificio, 1, 0);
             tableLayoutPanel1.Controls.Add(Venturi, 0, 0);
             tableLayoutPanel1.Location = new Point(12, 114);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -77,16 +77,17 @@
             button2.Text = "Bocal";
             button2.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // PlacaOrificio
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            button1.Location = new Point(288, 30);
-            button1.Margin = new Padding(30);
-            button1.Name = "button1";
-            button1.Size = new Size(198, 142);
-            button1.TabIndex = 1;
-            button1.Text = "Placa de Orificio";
-            button1.UseVisualStyleBackColor = true;
+            PlacaOrificio.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PlacaOrificio.Location = new Point(288, 30);
+            PlacaOrificio.Margin = new Padding(30);
+            PlacaOrificio.Name = "PlacaOrificio";
+            PlacaOrificio.Size = new Size(198, 142);
+            PlacaOrificio.TabIndex = 1;
+            PlacaOrificio.Text = "Placa de Orificio";
+            PlacaOrificio.UseVisualStyleBackColor = true;
+            PlacaOrificio.Click += button1_Click;
             // 
             // Venturi
             // 
@@ -133,7 +134,7 @@
         private TableLayoutPanel tableLayoutPanel1;
         private Button Venturi;
         private Button button2;
-        private Button button1;
+        private Button PlacaOrificio;
         private Button voltar;
     }
 }
